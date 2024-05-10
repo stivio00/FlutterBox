@@ -1,11 +1,11 @@
 # Latest Ubuntu LTS
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 # Update ubuntu image and upgrade pckgs
-RUN apt-get update -y &&  apt-get upgrade -y;
+RUN apt update -y &&  apt upgrade -y;
 
 # Download Flutter Dependencies
-RUN apt-get install -y curl wget git unzip xz-utils zip libglu1-mesa
+RUN apt install -y curl wget git unzip xz-utils zip libglu1-mesa
 
 # Download Java-17 SDK
 RUN apt install -y openjdk-17-jdk
@@ -29,7 +29,7 @@ RUN yes|sdkmanager --licenses
 
 #  Install flutter
 WORKDIR /opt
-RUN curl https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.19.5-stable.tar.xz > flutter.tar.xz
+RUN curl https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.19.6-stable.tar.xz > flutter.tar.xz
 RUN tar xf flutter.tar.xz
 RUN rm flutter.tar.xz
 ENV PATH="${PATH}:/opt/flutter/bin"
